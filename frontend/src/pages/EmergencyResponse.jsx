@@ -35,7 +35,17 @@ export default function EmergencyResponse() {
   const [responseMessage, setResponseMessage] = useState(
     "No manual response action has been activated."
   );
-  const [responseLog, setResponseLog] = useState([]);
+ const [responseLog, setResponseLog] = useState(() => {
+  try {
+    const savedLog = localStorage.getItem(
+      "gridpulse_emergency_response_log"
+    );
+
+    return savedLog ? JSON.parse(savedLog) : [];
+  } catch {
+    return [];
+  }
+});
 
   const loadEmergencyData = async (isRefresh = false) => {
     try {
@@ -121,14 +131,23 @@ export default function EmergencyResponse() {
     setActiveResponse(action);
     setResponseMessage(message);
 
-    setResponseLog((previous) => [
-      {
-        action,
-        message,
-        time,
-      },
-      ...previous,
-    ].slice(0, 6));
+   setResponseLog((previous) => {
+  const updatedLog = [
+    {
+      action,
+      message,
+      time,
+    },
+    ...previous,
+  ].slice(0, 6);
+
+  localStorage.setItem(
+    "gridpulse_emergency_response_log",
+    JSON.stringify(updatedLog)
+  );
+
+  return updatedLog;
+});
   };
 
   const resetResponse = () => {
@@ -137,18 +156,27 @@ export default function EmergencyResponse() {
       "Manual response console has been reset. No action is currently active."
     );
 
-    setResponseLog((previous) => [
-      {
-        action: "reset",
-        message: "Manual response state cleared.",
-        time: new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        }),
-      },
-      ...previous,
-    ].slice(0, 6));
+    setResponseLog((previous) => {
+  const updatedLog = [
+    {
+      action: "reset",
+      message: "Manual response state cleared.",
+      time: new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
+    },
+    ...previous,
+  ].slice(0, 6);
+
+  localStorage.setItem(
+    "gridpulse_emergency_response_log",
+    JSON.stringify(updatedLog)
+  );
+
+  return updatedLog;
+});
   };
 
   if (loading) {
