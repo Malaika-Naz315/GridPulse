@@ -1,0 +1,1144 @@
+/* =========================================================
+   GRIDPULSE — FAILURE PREDICTION
+   Premium Light Smart Grid Risk Intelligence
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.failure-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 28px 30px 40px;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.failure-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.failure-eyebrow,
+.section-kicker {
+  display: block;
+  margin-bottom: 7px;
+  color: #0284c7;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.failure-header h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.failure-header p {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+========================================================= */
+
+.failure-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex-shrink: 0;
+  min-height: 42px;
+  padding: 0 17px;
+  border: 1px solid #bae6fd;
+  border-radius: 11px;
+  background: #ffffff;
+  color: #0369a1;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.08);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.failure-refresh-btn:hover {
+  transform: translateY(-1px);
+  border-color: #7dd3fc;
+  background: #f0f9ff;
+  box-shadow: 0 7px 20px rgba(14, 165, 233, 0.13);
+}
+
+.failure-refresh-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.failure-loading {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  color: #0369a1;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.failure-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 13px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  background: #fff7f7;
+  color: #b91c1c;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   TOP SUMMARY
+========================================================= */
+
+.failure-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.failure-summary-card {
+  min-height: 150px;
+  padding: 18px;
+  border: 1px solid #e0f2fe;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.055);
+  box-sizing: border-box;
+}
+
+.failure-summary-card.primary {
+  border-color: #bae6fd;
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #f0f9ff 100%
+    );
+}
+
+.summary-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.summary-card-top svg {
+  color: #0ea5e9;
+}
+
+.summary-risk-value {
+  margin-top: 16px;
+  color: #0f172a;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.summary-risk-label {
+  margin-top: 3px;
+  color: #0369a1;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.summary-progress {
+  width: 100%;
+  height: 5px;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e0f2fe;
+}
+
+.summary-progress > div {
+  height: 100%;
+  border-radius: inherit;
+  background: #0ea5e9;
+  transition: width 0.45s ease;
+}
+
+.summary-main-text {
+  margin-top: 17px;
+  color: #0f172a;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.summary-secondary {
+  margin-top: 7px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.failure-section {
+  margin-bottom: 28px;
+}
+
+.failure-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.failure-section-heading h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.failure-section-heading p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LIVE INDICATOR
+========================================================= */
+
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid #bae6fd;
+  border-radius: 999px;
+  background: #f0f9ff;
+  color: #0369a1;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.live-indicator > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+}
+
+
+/* =========================================================
+   TELEMETRY
+========================================================= */
+
+.failure-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.telemetry-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 76px;
+  padding: 14px;
+  border: 1px solid #e0f2fe;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+}
+
+.telemetry-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: #f0f9ff;
+  color: #0284c7;
+}
+
+.telemetry-card span {
+  display: block;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.telemetry-card strong {
+  display: block;
+  margin-top: 4px;
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   RISK DISTRIBUTION
+========================================================= */
+
+.risk-distribution {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.risk-distribution-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 0 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.risk-distribution-item span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.risk-distribution-item strong {
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.risk-distribution-item.critical {
+  border-color: #fecaca;
+}
+
+.risk-distribution-item.critical strong {
+  color: #dc2626;
+}
+
+.risk-distribution-item.high {
+  border-color: #fed7aa;
+}
+
+.risk-distribution-item.high strong {
+  color: #ea580c;
+}
+
+.risk-distribution-item.medium {
+  border-color: #fde68a;
+}
+
+.risk-distribution-item.medium strong {
+  color: #ca8a04;
+}
+
+.risk-distribution-item.low {
+  border-color: #bbf7d0;
+}
+
+.risk-distribution-item.low strong {
+  color: #16a34a;
+}
+
+
+/* =========================================================
+   FAILURE PREDICTION CARDS
+========================================================= */
+
+.failure-predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+
+/*
+   Button reset is important because the JSX uses
+   <button> for the clickable prediction card.
+*/
+
+.failure-prediction-card {
+  width: 100%;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 0 7px 22px rgba(15, 23, 42, 0.045);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.failure-prediction-card:hover {
+  transform: translateY(-3px);
+  border-color: #7dd3fc;
+  box-shadow: 0 13px 30px rgba(14, 165, 233, 0.11);
+}
+
+.failure-prediction-card:focus-visible {
+  outline: 3px solid rgba(14, 165, 233, 0.2);
+  outline-offset: 2px;
+}
+
+
+/* Selected card */
+
+.failure-prediction-card.selected {
+  border-color: #0ea5e9;
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #f0f9ff 100%
+    );
+  box-shadow:
+    0 0 0 2px rgba(14, 165, 233, 0.1),
+    0 15px 32px rgba(14, 165, 233, 0.12);
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   CARD RISK STATES
+========================================================= */
+
+.failure-prediction-card.critical {
+  border-left: 4px solid #dc2626;
+}
+
+.failure-prediction-card.high {
+  border-left: 4px solid #f97316;
+}
+
+.failure-prediction-card.medium {
+  border-left: 4px solid #eab308;
+}
+
+.failure-prediction-card.low {
+  border-left: 4px solid #22c55e;
+}
+
+
+/* =========================================================
+   PREDICTION CARD HEADER
+========================================================= */
+
+.prediction-card-header {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.prediction-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: #f0f9ff;
+  color: #0284c7;
+}
+
+.failure-prediction-card.critical .prediction-icon {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.failure-prediction-card.high .prediction-icon {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.failure-prediction-card.medium .prediction-icon {
+  background: #fefce8;
+  color: #ca8a04;
+}
+
+.failure-prediction-card.low .prediction-icon {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.prediction-title-wrap {
+  min-width: 0;
+  flex: 1;
+}
+
+.prediction-title-wrap > span {
+  display: block;
+  margin-bottom: 3px;
+  color: #64748b;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.prediction-title-wrap h3 {
+  margin: 0;
+  overflow: hidden;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+}
+
+.prediction-arrow {
+  flex-shrink: 0;
+  color: #94a3b8;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.failure-prediction-card:hover .prediction-arrow,
+.failure-prediction-card.selected .prediction-arrow {
+  color: #0284c7;
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   SCORE ROW
+========================================================= */
+
+.prediction-score-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.prediction-score-row small {
+  display: block;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.prediction-score-row strong {
+  display: block;
+  margin-top: 4px;
+  color: #0f172a;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.prediction-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 9px 10px;
+  border-radius: 9px;
+  background: #f8fafc;
+}
+
+.prediction-status span {
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.prediction-status strong {
+  color: #0f172a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+========================================================= */
+
+.prediction-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid #f1f5f9;
+  color: #0284c7;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.prediction-card-footer svg {
+  transition: transform 0.2s ease;
+}
+
+.failure-prediction-card:hover .prediction-card-footer svg {
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   SELECTED RISK DETAILS PANEL
+========================================================= */
+
+.failure-details-panel {
+  margin-top: -5px;
+  margin-bottom: 30px;
+  padding: 21px;
+  border: 1px solid #bae6fd;
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #f0f9ff 100%
+    );
+  box-shadow:
+    0 12px 34px rgba(14, 165, 233, 0.09);
+  animation: failureDetailsIn 0.25s ease;
+}
+
+@keyframes failureDetailsIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   DETAILS HEADER
+========================================================= */
+
+.failure-details-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #e0f2fe;
+}
+
+.failure-details-header h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.failure-details-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 1px solid #dbeafe;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #64748b;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.failure-details-close:hover {
+  color: #0369a1;
+  border-color: #7dd3fc;
+  background: #f0f9ff;
+  transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   DETAIL METRIC GRID
+========================================================= */
+
+.failure-details-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 11px;
+  margin-top: 17px;
+}
+
+.failure-detail-card {
+  min-height: 78px;
+  padding: 13px;
+  border: 1px solid #e0f2fe;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.88);
+  box-sizing: border-box;
+}
+
+.failure-detail-card span {
+  display: block;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.failure-detail-card strong {
+  display: block;
+  margin-top: 8px;
+  color: #0f172a;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   EXPLANATION / ACTION
+========================================================= */
+
+.failure-detail-explanation,
+.failure-detail-action {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.failure-detail-explanation {
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+}
+
+.failure-detail-action {
+  border: 1px solid #bbf7d0;
+  background: #f7fff9;
+}
+
+.detail-block-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.failure-detail-action .detail-block-icon {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.failure-detail-explanation span,
+.failure-detail-action span {
+  display: block;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.failure-detail-explanation p,
+.failure-detail-action p {
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   MODEL INPUT CONTEXT
+========================================================= */
+
+.failure-detail-context {
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #e0f2fe;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.detail-context-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 13px;
+  color: #0369a1;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.detail-context-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.detail-context-grid > div {
+  padding: 11px;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.detail-context-grid small {
+  display: block;
+  color: #94a3b8;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.detail-context-grid strong {
+  display: block;
+  margin-top: 5px;
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   AI ENGINE
+========================================================= */
+
+.failure-engine-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f0f9ff 100%
+    );
+  box-shadow: 0 7px 22px rgba(15, 23, 42, 0.04);
+}
+
+.engine-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.engine-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.engine-content .section-kicker {
+  margin-bottom: 4px;
+}
+
+.engine-content h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.engine-content p {
+  max-width: 800px;
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.engine-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  padding: 8px 10px;
+  border: 1px solid #bbf7d0;
+  border-radius: 999px;
+  background: #f0fdf4;
+  color: #15803d;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.engine-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.failure-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 5px;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.failure-footer > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.spin {
+  animation: failureSpin 0.9s linear infinite;
+}
+
+@keyframes failureSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .failure-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .failure-predictions-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .failure-details-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .failure-page {
+    padding: 23px 20px 34px;
+  }
+
+  .failure-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .failure-refresh-btn {
+    align-self: flex-start;
+  }
+
+  .failure-telemetry-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .risk-distribution {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .failure-details-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .failure-page {
+    padding: 18px 14px 28px;
+  }
+
+  .failure-header {
+    margin-bottom: 21px;
+  }
+
+  .failure-header h1 {
+    font-size: 27px;
+  }
+
+  .failure-header p {
+    font-size: 13px;
+  }
+
+  .failure-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-telemetry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-predictions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-distribution {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .failure-details-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .detail-context-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .failure-engine-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .engine-status {
+    margin-left: 63px;
+  }
+
+  .failure-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .risk-distribution {
+    grid-template-columns: 1fr;
+  }
+
+  .failure-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-context-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .engine-status {
+    margin-left: 0;
+  }
+
+}

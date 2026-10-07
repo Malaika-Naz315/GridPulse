@@ -1,0 +1,969 @@
+/* =========================================================
+   GRIDPULSE — RENEWABLE ENERGY INTELLIGENCE
+   Light Ice-Blue Smart Grid Theme
+   ========================================================= */
+
+.renewable-page {
+  min-height: 100%;
+  padding: 28px 30px 40px;
+  background:
+    radial-gradient(
+      circle at 8% 0%,
+      rgba(125, 211, 252, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 95% 15%,
+      rgba(186, 230, 253, 0.2),
+      transparent 30%
+    ),
+    #f5fbff;
+  color: #163047;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.renewable-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.renewable-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 9px;
+  color: #1685b5;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.renewable-header h1 {
+  margin: 0;
+  color: #12344d;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+}
+
+.renewable-header p {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: #668197;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.renewable-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 145px;
+  padding: 11px 17px;
+  border: 1px solid #b8dcec;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #126b91;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(30, 116, 153, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.renewable-refresh:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #7fc7e5;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(30, 116, 153, 0.13);
+}
+
+.renewable-refresh:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.renewable-loading {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #4c7288;
+  text-align: center;
+}
+
+.renewable-loading svg {
+  color: #199bc8;
+}
+
+.renewable-loading strong {
+  color: #173e57;
+  font-size: 17px;
+}
+
+.renewable-loading span {
+  font-size: 13px;
+  color: #7691a2;
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.renewable-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding: 14px 17px;
+  border: 1px solid #f1c7c7;
+  border-radius: 12px;
+  background: #fff7f7;
+  color: #a94747;
+}
+
+.renewable-error > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.renewable-error div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.renewable-error strong {
+  font-size: 13px;
+}
+
+.renewable-error span {
+  font-size: 12px;
+  color: #a66a6a;
+}
+
+/* =========================================================
+   KPI CARDS
+   ========================================================= */
+
+.renewable-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.renewable-kpi-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 116px;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid #d8eaf3;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 25px rgba(27, 95, 125, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.renewable-kpi-card::after {
+  content: "";
+  position: absolute;
+  right: -35px;
+  bottom: -45px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(125, 211, 252, 0.08);
+}
+
+.renewable-kpi-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(27, 95, 125, 0.1);
+}
+
+.kpi-icon {
+  position: relative;
+  z-index: 1;
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+}
+
+.renewable-kpi-card.solar .kpi-icon {
+  background: #fff4cf;
+  color: #e2a800;
+}
+
+.renewable-kpi-card.wind .kpi-icon {
+  background: #e5f7ff;
+  color: #1688b6;
+}
+
+.renewable-kpi-card.battery .kpi-icon {
+  background: #e4f8ef;
+  color: #179464;
+}
+
+.renewable-kpi-card.availability .kpi-icon {
+  background: #e9f0ff;
+  color: #4775c8;
+}
+
+.renewable-kpi-card > div:last-child {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.renewable-kpi-card span {
+  display: block;
+  margin-bottom: 5px;
+  color: #6e8798;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.renewable-kpi-card strong {
+  display: block;
+  color: #153b53;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.renewable-kpi-card small {
+  display: block;
+  margin-top: 5px;
+  color: #91a4b1;
+  font-size: 10px;
+}
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.renewable-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(340px, 0.9fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   GENERAL PANEL
+   ========================================================= */
+
+.renewable-panel {
+  border: 1px solid #dcebf3;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 9px 30px rgba(30, 94, 122, 0.06);
+  overflow: hidden;
+}
+
+.chart-panel,
+.insight-panel,
+.operational-panel,
+.records-panel {
+  padding: 21px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.panel-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #3a9ac1;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.25px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  color: #183e56;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.panel-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid #d8eee4;
+  border-radius: 999px;
+  background: #f3fbf7;
+  color: #338064;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #31b77a;
+  box-shadow: 0 0 0 4px rgba(49, 183, 122, 0.12);
+}
+
+/* =========================================================
+   CHART
+   ========================================================= */
+.renewable-chart {
+  width: 100%;
+  min-height: 340px;
+  height: 340px;
+  margin-top: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.renewable-chart .recharts-wrapper {
+  min-width: 700px;
+}
+
+.renewable-chart .recharts-cartesian-grid-horizontal line {
+  stroke: #dcebf2;
+}
+
+.renewable-chart .recharts-cartesian-axis-line {
+  stroke: #cbdde6;
+}
+
+.renewable-chart .recharts-cartesian-axis-tick-line {
+  stroke: #cbdde6;
+}
+
+.renewable-chart .recharts-cartesian-axis-tick-value {
+  fill: #71899a;
+  font-size: 10px;
+}
+
+.renewable-chart .recharts-legend-item-text {
+  color: #587385 !important;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   HEALTH / INTELLIGENCE PANEL
+   ========================================================= */
+
+.insight-panel {
+  min-width: 0;
+}
+
+.health-score {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 22px;
+  padding: 15px;
+  border: 1px solid #e0edf4;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    #f8fdff,
+    #f1faff
+  );
+}
+
+.health-ring {
+  width: 92px;
+  height: 92px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 7px solid #d8f0fa;
+  border-top-color: #27a7d4;
+  border-right-color: #55c2e4;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(34, 148, 189, 0.08);
+}
+
+.health-ring strong {
+  color: #197ca4;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.health-ring span {
+  margin-top: 1px;
+  color: #7893a3;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.health-score h3 {
+  margin: 0 0 5px;
+  color: #21475f;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.health-score p {
+  margin: 0;
+  color: #708998;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.health-score p strong {
+  color: #2689ac;
+}
+
+/* =========================================================
+   RENEWABLE MIX
+   ========================================================= */
+
+.renewable-mix {
+  margin-top: 21px;
+}
+
+.mix-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 9px;
+}
+
+.mix-header span {
+  color: #617c8c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mix-header strong {
+  color: #2d536a;
+  font-size: 11px;
+}
+
+.mix-bar {
+  display: flex;
+  width: 100%;
+  height: 11px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #edf4f7;
+}
+
+.mix-solar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #f3c94f,
+    #f6d978
+  );
+  transition: width 0.5s ease;
+}
+
+.mix-wind {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #42acd2,
+    #78cce7
+  );
+  transition: width 0.5s ease;
+}
+
+.mix-legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 9px;
+}
+
+.mix-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #718b9b;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.solar-dot,
+.wind-dot {
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.solar-dot {
+  background: #f2c64a;
+}
+
+.wind-dot {
+  background: #45add3;
+}
+
+/* =========================================================
+   AI INSIGHT
+   ========================================================= */
+
+.ai-insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-top: 21px;
+  padding: 13px;
+  border: 1px solid #d5edf7;
+  border-radius: 13px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(228, 248, 255, 0.95),
+      rgba(245, 252, 255, 0.95)
+    );
+}
+
+.ai-icon {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #d8f2fb;
+  color: #178bb7;
+}
+
+.ai-insight strong {
+  color: #1c5974;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ai-insight p {
+  margin: 5px 0 0;
+  color: #688595;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.ai-insight p strong {
+  color: #247e9f;
+}
+
+/* =========================================================
+   OPERATIONAL PANEL
+   ========================================================= */
+
+.operational-panel {
+  margin-bottom: 20px;
+}
+
+.operational-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 17px;
+}
+
+.operational-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid #e0edf3;
+  border-radius: 13px;
+  background: #fafdff;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.operational-card:hover {
+  transform: translateY(-2px);
+  border-color: #c4e3ef;
+}
+
+.operational-card svg {
+  margin-bottom: 3px;
+  color: #2998be;
+}
+
+.operational-card span {
+  color: #7b919f;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+}
+
+.operational-card strong {
+  color: #20475e;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   RECORDS
+   ========================================================= */
+
+.records-panel {
+  margin-bottom: 20px;
+}
+
+.record-count {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #edf8fc;
+  color: #3385a4;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.renewable-table-wrapper {
+  width: 100%;
+  margin-top: 17px;
+  overflow-x: auto;
+  border: 1px solid #e3eef3;
+  border-radius: 12px;
+}
+
+.renewable-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.renewable-table th {
+  padding: 12px 14px;
+  border-bottom: 1px solid #dfedf3;
+  background: #f5fbfe;
+  color: #668191;
+  font-size: 9px;
+  font-weight: 800;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.65px;
+  white-space: nowrap;
+}
+
+.renewable-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #edf3f6;
+  color: #536f80;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.renewable-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.renewable-table tbody tr:hover {
+  background: #f7fcfe;
+}
+
+.renewable-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.timestamp-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #617e8f;
+}
+
+.timestamp-cell svg {
+  flex-shrink: 0;
+  color: #55a8c5;
+}
+
+/* =========================================================
+   SOURCE BADGES
+   ========================================================= */
+
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.source-badge.solar {
+  background: #fff6d9;
+  color: #a87900;
+}
+
+.source-badge.wind {
+  background: #e8f7fc;
+  color: #247e9f;
+}
+
+/* =========================================================
+   AVAILABILITY BADGES
+   ========================================================= */
+
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 43px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.availability-badge.excellent {
+  background: #e5f8ef;
+  color: #21855e;
+}
+
+.availability-badge.stable {
+  background: #fff5da;
+  color: #9a710c;
+}
+
+.availability-badge.low {
+  background: #fff0f0;
+  color: #b25252;
+}
+
+/* =========================================================
+   SPINNER
+   ========================================================= */
+
+.spin {
+  animation: renewableSpin 0.9s linear infinite;
+}
+
+@keyframes renewableSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   TABLE SCROLLBAR
+   ========================================================= */
+
+.renewable-table-wrapper::-webkit-scrollbar {
+  height: 7px;
+}
+
+.renewable-table-wrapper::-webkit-scrollbar-track {
+  background: #f1f7fa;
+}
+
+.renewable-table-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #bddce8;
+}
+
+.renewable-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #8fc4d7;
+}
+
+/* =========================================================
+   RESPONSIVE — LARGE TABLETS
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .renewable-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .renewable-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .operational-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .renewable-page {
+    padding: 22px 18px 30px;
+  }
+
+  .renewable-header {
+    flex-direction: column;
+  }
+
+  .renewable-refresh {
+    width: 100%;
+  }
+
+  .renewable-chart {
+    height: 300px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 560px) {
+  .renewable-page {
+    padding: 18px 12px 25px;
+  }
+
+  .renewable-header h1 {
+    font-size: 25px;
+  }
+
+  .renewable-header p {
+    font-size: 12px;
+  }
+
+  .renewable-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .renewable-kpis {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .renewable-kpi-card {
+    min-height: 100px;
+    padding: 15px;
+  }
+
+  .renewable-main-grid {
+    gap: 13px;
+  }
+
+  .chart-panel,
+  .insight-panel,
+  .operational-panel,
+  .records-panel {
+    padding: 15px;
+  }
+
+  .panel-heading {
+    flex-direction: column;
+  }
+
+  .panel-status {
+    align-self: flex-start;
+  }
+
+  .renewable-chart {
+    height: 270px;
+    margin-top: 10px;
+  }
+
+  .health-score {
+    align-items: flex-start;
+  }
+
+  .health-ring {
+    width: 78px;
+    height: 78px;
+    border-width: 6px;
+  }
+
+  .health-ring strong {
+    font-size: 15px;
+  }
+
+  .operational-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .operational-card {
+    padding: 13px;
+  }
+
+  .operational-card strong {
+    font-size: 15px;
+  }
+
+  .mix-legend {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .renewable-table {
+    min-width: 720px;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .operational-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .health-score {
+    flex-direction: column;
+  }
+
+  .health-ring {
+    width: 84px;
+    height: 84px;
+  }
+}
