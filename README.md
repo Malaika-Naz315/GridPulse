@@ -649,3 +649,8 @@ The project demonstrates how an AI-powered software system can turn complex ener
 
 **Monitor. Forecast. Analyze. Optimize. Respond.**
 
+## 🎥 Project Demo
+
+A complete walkthrough of the GridPulse platform, covering the project structure, README, backend APIs, frontend dashboard, AI modules, and the overall working application.
+
+[▶️ Watch the GridPulse Demo](demo/GridPulse-Demo.mp4)
